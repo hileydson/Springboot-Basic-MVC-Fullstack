@@ -1,0 +1,31 @@
+<html>
+<body>
+
+<h2>HTML Exemplo - Busca Cliente</h2>
+
+<form>
+    <label>Nome:</label><br>
+    <input type="text" id="fnameId" name="fname" ><br><br>
+    <span id="resposta_span_id"></span><br><br>
+    <input type="button" value="Buscar" onclick="buscarCliente()">
+</form>
+
+<p>Frontend - Primeira busca - Treinamento Vixteam 2022</p>
+
+<script type="text/javascript">
+    function buscarCliente() {
+
+      var nome = document.getElementById("fnameId").value
+
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        document.getElementById("resposta_span_id").textContent = this.responseText;
+      }
+      xhttp.open("GET", "/helloBuscar?fname="+nome);
+      xhttp.send();
+
+
+    }
+</script>
+</body>
+</html>
